@@ -1,0 +1,37 @@
+body {
+	background-color:#efefef;
+	margin:10px;
+	font: normal 14px/16px helvetica, arial, sans-serif;
+}
+h1 {
+	width:100%;
+	height:30px;
+	background:#ddd;
+	font:bold 25px/30px georgia,serif;
+	text-align:center;
+	display: block;
+}
+h2 {
+	font: bold 20px/30px helvetica, arial, sans-serif;
+	display: block;
+}
+input {
+	font:normal 20px/20px arial;
+	width:100%
+	border:1px solid #ddd;
+	color:#333;
+}
+input[type=submit] {
+	margin-top:10px;
+	color:#555;
+}
+label {
+	font: bold 13px/30px helvetica, arial, sans-serif;
+	display: block;
+}
+a {
+	color:#00A;
+}
+a:hover {
+	color:#00F;
+}
