@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# URLs ending in '/' 
+RewriteRule ^(.+)/$ index.php?url=/$0&%{QUERY_STRING} [L] 
+# Access Files
+RewriteCond %{REQUEST_FILENAME} !-f 
+# URLs not ending in '/' excluding files
+RewriteRule ^(.+)$ index.php?url=/$0/&%{QUERY_STRING} [L] 

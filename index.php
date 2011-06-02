@@ -1,5 +1,5 @@
 <?php
-	class Tofu
+	class PHPTofu
 	{
 		public static function StartApp()
 		{
@@ -21,7 +21,7 @@
 			Registry::setDebugMode(true);
 			set_error_handler('Template::handleError');
 			set_exception_handler('Template::handleException');
-		
+	
 			// Initialize Database
 			Model::$db = DBO::getInstance('sqlite:example.sqldb');
 			
@@ -37,4 +37,4 @@
 		}
 	}
 	
-	Tofu::StartApp();
+	PHPTofu::StartApp();

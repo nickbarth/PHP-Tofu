@@ -13,6 +13,7 @@
 		
 		public static function handleError($errno, $errstr, $errfile, $errline)
 		{
+			print $errstr;
 			// Set Error Message
 			if (Registry::getDebugMode())
 				$errorMessage = 'Error Number '.$errno.'. "'.$errstr.'" on '.

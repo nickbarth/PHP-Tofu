@@ -32,7 +32,7 @@
 			elseif (!empty($var))
 				print Template::escape($var);
 		}
-		sprintf %s
+		// sprintf %s
 		public static function escape()
 		{
 			// Short HTML Entities Call
