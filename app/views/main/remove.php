@@ -13,7 +13,7 @@
 		<form action="" method="post">
 			<fieldset>
 			  <legend>Remove this Tofu?</legend>
-			  	<input type="hidden" name="delete" value="1">
+			  	<input type="hidden" name="tofu[id]" value="<?php print $tofu->id ?>">
 	    		<input type="submit" value="Remove">
 	    		<a href="<<BASEURL>>/">Cancel</a>
 			</fieldset>

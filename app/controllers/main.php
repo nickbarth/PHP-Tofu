@@ -4,46 +4,32 @@
 		public function index()
 		{
 			// Tofu Listing Page
-			$this->tofus = Tofus::findAll();
+			$this->tofus = Tofu::findAll();
 		}
 		
 		public function view($tofuID = null)
 		{
 			// Single Tofu Page
-			if (!$this->tofu = Tofus::find($tofuID))
-				trigger_error('Tofu Not Found');
+			$this->tofu = Tofu::find($tofuID);
 		}
 		
 		public function create()
 		{
 			// Create an Tofu Page
-			if (!empty($_POST))
-				$this->tofu = Tofus::create(
-					$type 	= $_POST['type'],
-					$size 	= $_POST['size'],
-					$weight	= $_POST['weight']
-				);
+      $this->tofu = Tofu::create($_POST['tofu']);
 		}
 		
 		public function update($tofuID = null)
 		{
 			// Update an Tofu
-			if (!$this->tofu = Tofus::find($tofuID))
-				trigger_error("Tofu Not Found");
-			if (!empty($_POST))
-				$this->tofu->update(array(
-					'type' 		=> $_POST['type'],
-					'size'	 	=> $_POST['size'],
-					'weight'	=> $_POST['weight']
-				));
+			$this->tofu = Tofu::find($tofuID);
+      $this->tofu->update($_POST['tofu']);
 		}
 		
 		public function remove($tofuID = null)
 		{
 			// Confirm and Delete an Tofu
-			if (!$this->tofu = Tofus::find($tofuID))
-				trigger_error("Tofu Not Found.");
-			if (!empty($_POST))
-				$this->tofu->delete();
+			$this->tofu = Tofu::find($tofuID);
+      $this->tofu->remove($_POST['tofu']);
 		}
 	}

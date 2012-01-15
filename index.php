@@ -11,7 +11,7 @@
 			define('BASEPATH', substr($_SERVER['SCRIPT_FILENAME'],0,-10));
 			
 			// Helper Boot Loader
-			require(BASEPATH.'/app/helpers/core/bootloader.php');
+			require(BASEPATH.'/core/bootloader.php');
 			
 			// Initialize Helpers
 			BootLoader::loadHelpers();

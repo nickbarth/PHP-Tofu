@@ -1,13 +1,20 @@
 <?php
 	class Template extends Template_Core
 	{	
-		public static function post($var)
+		public static function post($var, $object)
 		{
 			// Output and Escape a POST Variable if Set
-			if (isset($_POST[$var]))
-				print Template::escape($_POST[$var]);
+			if (isset($_POST[$object][$var]))
+				print Template::escape($_POST[$object][$var]);
 		}
 		
+		public static function error($object, $var)
+		{
+			// Output and Escape a POST Variable if Set
+			if (isset($object->errors[$var]))
+        print $object->errors[$var][0];
+		}
+
 		public static function postf(&$var, $post)
 		{
 			// Output User POST Input if set or Default Variable

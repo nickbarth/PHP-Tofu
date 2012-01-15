@@ -8,6 +8,6 @@
 		<script type="text/javascript" src="{{ JS }}/main.js" ></script>
 	</head>
 	<body>
-		<h1>{{ $errorMessage }}</h1>
+		<h1><?php print $errorMessage; ?></h1>
 	</body>
 </html>

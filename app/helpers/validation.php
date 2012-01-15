@@ -22,9 +22,9 @@
 		protected static function isValidInput($var, $value)
 		{
 			// Check if Variable contains only letters, numbers, and underscores
-			if (preg_match('/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/', $value))
+			if (preg_match('/^[A-Za-z0-9]*$/', $value))
 				return true;
-			self::setError($var, $value, ucfirst($var).' must contain only letters, numbers, and underscores.');
+			self::setError($var, $value, ucfirst($var).' must contain only numbers and letters.');
 			return false;
 		}
 		
@@ -40,8 +40,8 @@
 		protected static function isUnique($var, $value)
 		{
 			// Check if Variable is unique in the database table
-			$model = self::$object->from;
-			if (!$model::findWhere($var.' = :'.$var.' AND id != :id', 
+      $class = get_class(self::$object);
+			if (!$class::findWhere($var.' = :'.$var.' AND id != :id', 
 					$value, self::$object->id ? self::$object->id : -1))
 				return true;
 			self::setError($var, $value, ucfirst($var).' must be unique');

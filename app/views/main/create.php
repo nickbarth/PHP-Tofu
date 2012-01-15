@@ -8,14 +8,14 @@
 	
 	<form action="" method="post">
 		<fieldset>
-		    <label>Type</label><input type="text" name="type" value="<?php Template::post('type') ?>">
-		    	<?php Template::output($errors['type'], '<i>', '</i>') ?>
+		    <label>Type</label><input type="text" name="tofu[type]" value="<?php Template::post('type', 'tofu') ?>">
+		    	<?php Template::error($tofu, 'type') ?>
 		    <br/>
-		    <label>Size</label><input type="text" name="size" value="<?php Template::post('size') ?>">
-		    	<?php Template::output($errors['size'], '<i>', '</i>') ?>
+		    <label>Size</label><input type="text" name="tofu[size]" value="<?php Template::post('size', 'tofu') ?>">
+		    	<?php Template::error($tofu, 'size') ?>
 		    <br/>
-    		<label>Weight</label><input type="text" name="weight" value="<?php Template::post('weight') ?>">
-				<?php Template::output($errors['weight'], '<i>', '</i>') ?>
+    		<label>Weight</label><input type="text" name="tofu[weight]" value="<?php Template::post('weight', 'tofu') ?>">
+		    	<?php Template::error($tofu, 'weight') ?>
     		<br/>
     		<input type="submit" value="Create Tofu">
 		</fieldset>
