@@ -1,5 +1,4 @@
 <?php
-	// Maybe Get Rid OF THIS
 	class Registry
 	{
 		public $vars = array();

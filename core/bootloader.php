@@ -16,7 +16,6 @@
 			require(BASEPATH.'/core/template_core.php');
 			require(BASEPATH.'/app/helpers/routing.php');
 			require(BASEPATH.'/app/helpers/validation.php');
-			require(BASEPATH.'/app/helpers/template.php');
 			require(BASEPATH.'/app/helpers/security.php');
 		}
 	}

@@ -1,16 +1,35 @@
 <?php
-	abstract class Template_Core
+	class Template
 	{
-		public static function display($contents)
-		{
-			// Output Content
-			$contents = str_ireplace('<<IMAGES>>', BASEURL . '/style/images', $contents);
-			$contents = str_ireplace('<<CSS>>', BASEURL . '/style', $contents);
-			$contents = str_ireplace('<<JS>>', BASEURL . '/style/js', $contents);
-			$contents = str_ireplace('<<BASEURL>>', BASEURL, $contents);
-			print $contents;
+    public static function render($vars, $displayContents = true)
+    {
+			// Get Templating Vars
+			extract($vars, EXTR_SKIP);
+
+      // Include Helper Functions
+      require(BASEPATH.'/app/helpers/template.php');
+
+			// Render View File
+			ob_start();
+			include(BASEPATH.'/app/views/'.Routes::getController().'/'.Routes::getMethod().'.php');
+			$contents = ob_get_contents();
+			ob_end_clean();
+
+			// Render Layout File
+			ob_start();
+			include(BASEPATH.'/app/views/layouts/'.Routes::getController().'.php');
+			$view = ob_get_contents();
+			ob_end_clean();
+
+      foreach($templates as $key => $value)
+        $view = str_ireplace($key, $value, $view);
+  
+      // Render View
+      if ($displayContents)
+        print $view;
+      return $view;
 		}
-		
+
 		public static function handleError($errno, $errstr, $errfile, $errline)
 		{
 			print $errstr;
@@ -24,11 +43,16 @@
 			$file = BASEPATH.'/app/views/error.php';
 			if (file_exists($file))
 			{
+        include_once(BASEPATH.'/app/helpers/template.php');
+
 				ob_start();
 				include($file);
 				$contents = ob_get_contents();
 				ob_end_clean();
-				self::display($contents);
+
+        foreach($templates as $key => $value)
+          $view = str_ireplace($key, $value, $view);
+			  print $contents;	
 			} else print 'Error template not found';
 			exit;
 		}

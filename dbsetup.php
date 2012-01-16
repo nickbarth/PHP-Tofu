@@ -7,7 +7,7 @@
 			@unlink("example.sqldb");
 			$db = new PDO('sqlite:example.sqldb');
 			$db->exec("
-				CREATE TABLE Tofu
+				CREATE TABLE Apple
 				(
 					id INTEGER PRIMARY KEY AUTOINCREMENT,
 					type STRING NOT NULL,

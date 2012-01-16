@@ -9,8 +9,10 @@
 	</head>
 	<body>
 	<h1>Tofu Manager</h1>
-		{{ layout('common/nav') }}
-		{{ CONTENT }}
-		{{ layout('common/footer') }}
+    <a href="<?php print BASEURL ?>/">Home</a>
+    <a href="<?php print BASEURL ?>/create/">Create Tofu</a>
+    <br/>
+    <?php print $contents ?>
+    Tofu Manager &copy; 2011 by Nick Barth
 	</body>
 </html>

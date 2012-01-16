@@ -4,10 +4,10 @@
 		public static function setRoutes()
 		{
 			// URL Routes 
-			Routes::add('/', 'main', 'index');
-			Routes::add('/view/(:tofuID)/', 'main', 'view');
-			Routes::add('/create/', 'main', 'create');
-			Routes::add('/update/(:tofuID)/', 'main', 'update');
-			Routes::add('/remove/(:tofuID)/', 'main', 'remove');
+			Routes::add('/', 'apples', 'index');
+			Routes::add('/view/(:tofuID)/', 'apples', 'view');
+			Routes::add('/create/', 'apples', 'create');
+			Routes::add('/update/(:tofuID)/', 'apples', 'update');
+			Routes::add('/remove/(:tofuID)/', 'apples', 'remove');
 		}
 	}

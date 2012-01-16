@@ -1,5 +1,5 @@
 <?php
-	class Tofu extends Model
+	class Apple extends Model
 	{
 		public
 		// 	Object Data
