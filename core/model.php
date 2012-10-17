@@ -5,7 +5,7 @@
 		public
 			// Primary Key
 			$id = 0,
-      $errors = array();
+			$errors = array();
 
 		protected
 			// Valid Object
@@ -20,18 +20,18 @@
 				array_merge((array)$statement, $args));
 		}
 		
-    protected static function createObject($args)
-    {
-      // Create and populate Object
+		protected static function createObject($args)
+		{
+			// Create and populate Object
 			$object = get_called_class();
 			$object = new $object();
 			foreach($args[0] as $key => $value)
-        if (in_array($key, static::getVars()))
-          $object->$key = $value;
+				if (in_array($key, static::getVars()))
+					$object->$key = $value;
 			if ($object->validate())
 				$object->setValid();
-      return $object;
-    }
+			return $object;
+		}
 
 		public static function getVars()
 		{
@@ -42,9 +42,9 @@
 		
 		public static function create(&$obj)
 		{
-      $object = new self();
-      if (func_get_args() != array(0 => null))
-        $object = self::createObject(func_get_args());
+			$object = new self();
+			if (func_get_args() != array(0 => null))
+			$object = self::createObject(func_get_args());
 			if (!$object->isValid())
 				return $object;
 			$query = 'INSERT INTO '.get_called_class().' ('.
@@ -121,10 +121,10 @@
                        ' WHERE id = :id', $args[0]);
 		}
     
-    // Object Instance Functions
+		// Object Instance Functions
 		public function __toString()
 		{
-      // To String
+			// To String
 			return get_called_class();
 		}
 		
@@ -173,28 +173,27 @@
 		public function remove(&$args)
 		{
 			// Delete Object From Database
-      if (func_get_args() != array(0 => null))
-      {
-        call_user_func(array(get_class(), "delete"), func_get_args());
-        $this->isRemoved = true;
-      }
+			if (func_get_args() != array(0 => null))
+			{
+				call_user_func(array(get_class(), "delete"), func_get_args());
+				$this->isRemoved = true;
+			}
 		}
 		
 		public function update(&$update)
 		{
 			// Update Object 
-      if (func_get_args() != array(0 => null))
-      {
-        // Make a Update Object Function
-        // $object = self::createObject(func_get_args());
-        foreach($update as $key => $value)
-          $this->{$key} = $value;
-        if ($this->Validate())
-        {
-          call_user_func(array(get_class(), "change"), $this);
-          $this->isUpdated = true;
-        } else $this->setInvalid();
-      }
+			if (func_get_args() != array(0 => null))
+			{
+				// Make a Update Object Function
+				foreach($update as $key => $value)
+				$this->{$key} = $value;
+				if ($this->Validate())
+				{
+					call_user_func(array(get_class(), "change"), $this);
+					$this->isUpdated = true;
+				} else $this->setInvalid();
+			}
 		}
 		
 		public function Validate()
