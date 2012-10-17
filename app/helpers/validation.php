@@ -40,7 +40,7 @@
 		protected static function isUnique($var, $value)
 		{
 			// Check if Variable is unique in the database table
-      $class = get_class(self::$object);
+			$class = get_class(self::$object);
 			if (!$class::findWhere($var.' = :'.$var.' AND id != :id', 
 					$value, self::$object->id ? self::$object->id : -1))
 				return true;
