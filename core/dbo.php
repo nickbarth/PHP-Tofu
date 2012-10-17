@@ -15,12 +15,12 @@
 		}
 		
 		// Singleton Object
-	    public static function getInstance($dns = null, $username = '', $password = '', $driver_options = array())
-    	{
+		public static function getInstance($dns = null, $username = '', $password = '', $driver_options = array())
+		{
 			if (empty(self::$instance) && isset($dns))
 				self::$instance = new DBO($dns, $username, $password, $driver_options);
 			return self::$instance;
-    	}
+		}
     	
 		// Query Database
 		public function query()
