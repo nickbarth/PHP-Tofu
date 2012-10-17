@@ -2,9 +2,9 @@
 	class Routes 
 	{
 		private static	$url,
-                    $controller,
-                    $method,
-                    $params = array(),
+				$controller,
+				$method,
+				$params = array(),
 
 		// URL Parsers
 		$search = array( '/\//', '/\(\:(.+?)\)/', '/^/', '/$/'),
